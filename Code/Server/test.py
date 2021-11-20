@@ -1,6 +1,7 @@
 import time
 from Led import *
 
+
 led = Led()
 
 
@@ -149,6 +150,27 @@ def test_Buzzer():
         print("\nEnd of program")
 
 
+def anotherTest():
+    try:
+        led.ledIndex(0x01, 255, 0, 0)
+        time.sleep(1)
+        led.ledIndex(0x01, 255, 255, 0)
+        time.sleep(1)
+        led.ledIndex(0x01, 0, 255, 0)
+        time.sleep(1)
+        led.ledIndex(0x01, 0, 255, 255)
+        time.sleep(1)
+        led.ledIndex(0x01, 0, 0, 255)
+        time.sleep(1)
+        led.ledIndex(0x01, 255, 255, 255)
+        time.sleep(1)
+        led.colorWipe(led.strip, Color(0, 0, 0))  # turn off the light
+        print("\nEnd of program")
+    except KeyboardInterrupt:
+        led.colorWipe(led.strip, Color(0, 0, 0))  # turn off the light
+        print("\nEnd of program")
+
+
 # Main program logic follows:
 if __name__ == '__main__':
 
@@ -172,3 +194,5 @@ if __name__ == '__main__':
         test_Adc()
     elif sys.argv[1] == 'Buzzer':
         test_Buzzer()
+    elif sys.argv[1] == 'Another':
+        anotherTest()
