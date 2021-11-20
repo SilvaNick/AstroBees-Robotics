@@ -152,17 +152,17 @@ def test_Buzzer():
 
 def anotherTest():
     try:
-        led.ledIndex(0x01, 255, 0, 0)
+        led.ledIndex(0x40, 128, 0, 128)
         time.sleep(1)
-        led.ledIndex(0x01, 255, 255, 0)
+        led.ledIndex(0x40, 128, 0, 128)
         time.sleep(1)
-        led.ledIndex(0x01, 0, 255, 0)
+        led.ledIndex(0x40, 128, 0, 128)
         time.sleep(1)
         led.ledIndex(0x01, 0, 255, 255)
         time.sleep(1)
         led.ledIndex(0x01, 0, 0, 255)
         time.sleep(1)
-        led.ledIndex(0x01, 255, 255, 255)
+        led.ledIndex(0x40, 128, 0, 128)
         time.sleep(1)
         led.colorWipe(led.strip, Color(0, 0, 0))  # turn off the light
         print("\nEnd of program")
