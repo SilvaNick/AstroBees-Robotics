@@ -166,6 +166,8 @@ def anotherTest():
         print("4")
         time.sleep(2)
         PWM.setMotorModel(1000, 1000, 1000, 1000)  # Stop
+        time.sleep(2)
+        PWM.setMotorModel(0, 0, 0, 0)
         led.colorWipe(led.strip, Color(0, 0, 0))  # turn off the light
         print("\nEnd of program")
     except KeyboardInterrupt:
