@@ -150,7 +150,7 @@ def test_Buzzer():
         print("\nEnd of program")
 
 
-def whatMotor():
+def determineMotorLocation():
     try:
         # Led to make sure it is working
         led.ledIndex(0x40, 128, 0, 128)
@@ -202,4 +202,4 @@ if __name__ == '__main__':
     elif sys.argv[1] == 'Buzzer':
         test_Buzzer()
     elif sys.argv[1] == 'Another':
-        whatMotor()
+        determineMotorLocation()
