@@ -1,7 +1,7 @@
 import time
 from Led import *
 
-# Will adding a comment to make another push fix all my issues?
+
 led = Led()
 
 
@@ -150,22 +150,24 @@ def test_Buzzer():
         print("\nEnd of program")
 
 
-def anotherTest():
+def whatMotor():
     try:
+        # Led to make sure it is working
         led.ledIndex(0x40, 128, 0, 128)
-        PWM.setMotorModel(1000, 0, 0, 0)  # Forward
-        print("1")
+        PWM.setMotorModel(-1000, 0, 0, 0)  # Forward
+        print("Front Left")
         time.sleep(2)
-        PWM.setMotorModel(0, 1000, 0, 0)  # Forward  # Back
-        print("2")
+        PWM.setMotorModel(0, -1000, 0, 0)  # Forward  # Back
+        print("Back Left")
         time.sleep(2)
-        PWM.setMotorModel(0, 0, 1000, 0)  # Forward  # Left
-        print("3")
+        PWM.setMotorModel(0, 0, -1000, 0)  # Forward  # Left
+        print("Front Right")
         time.sleep(2)
-        PWM.setMotorModel(0, 0, 0, 1000)  # Forward  # Right
-        print("4")
+        PWM.setMotorModel(0, 0, 0, -1000)  # Forward  # Right
+        print("Back Right")
         time.sleep(2)
-        PWM.setMotorModel(1000, 1000, 1000, 1000)  # Stop
+        PWM.setMotorModel(-1000, -1000, -1000, -1000)  # Stop
+        print("All")
         time.sleep(2)
         PWM.setMotorModel(0, 0, 0, 0)
         led.colorWipe(led.strip, Color(0, 0, 0))  # turn off the light
@@ -200,4 +202,4 @@ if __name__ == '__main__':
     elif sys.argv[1] == 'Buzzer':
         test_Buzzer()
     elif sys.argv[1] == 'Another':
-        anotherTest()
+        whatMotor()
