@@ -153,20 +153,23 @@ def test_Buzzer():
 def anotherTest():
     try:
         led.ledIndex(0x40, 128, 0, 128)
-        time.sleep(1)
-        led.ledIndex(0x40, 128, 0, 128)
-        time.sleep(1)
-        led.ledIndex(0x40, 128, 0, 128)
-        time.sleep(1)
-        led.ledIndex(0x01, 0, 255, 255)
-        time.sleep(1)
-        led.ledIndex(0x01, 0, 0, 255)
-        time.sleep(1)
-        led.ledIndex(0x40, 128, 0, 128)
-        time.sleep(1)
+        PWM.setMotorModel(1000, 0, 0, 0)  # Forward
+        print("1")
+        time.sleep(2)
+        PWM.setMotorModel(0, 1000, 0, 0)  # Forward  # Back
+        print("2")
+        time.sleep(2)
+        PWM.setMotorModel(0, 0, 1000, 0)  # Forward  # Left
+        print("3")
+        time.sleep(2)
+        PWM.setMotorModel(0, 0, 0, 1000)  # Forward  # Right
+        print("4")
+        time.sleep(2)
+        PWM.setMotorModel(1000, 1000, 1000, 1000)  # Stop
         led.colorWipe(led.strip, Color(0, 0, 0))  # turn off the light
         print("\nEnd of program")
     except KeyboardInterrupt:
+        PWM.setMotorModel(0, 0, 0, 0)
         led.colorWipe(led.strip, Color(0, 0, 0))  # turn off the light
         print("\nEnd of program")
 
