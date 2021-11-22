@@ -178,6 +178,16 @@ def determineMotorLocation():
         print("\nEnd of program")
 
 
+from subprocess import run
+
+
+def screenOff():
+    run('vcgencmd display_power 0', shell=True)
+    time.sleep(2)
+    run('vcgencmd display_power 1', shell=True)
+    print("\nEnd of program")
+
+
 # Main program logic follows:
 if __name__ == '__main__':
 
@@ -203,3 +213,5 @@ if __name__ == '__main__':
         test_Buzzer()
     elif sys.argv[1] == 'Another':
         determineMotorLocation()
+    elif sys.argv[1] == 'Screen':
+        screenOff()
