@@ -154,22 +154,22 @@ def determineMotorLocation():
     try:
         # Led to make sure it is working
         led.ledIndex(0x40, 128, 0, 128)
-        PWM.setMotorModel(-1000, 0, 0, 0)  # Forward
+        PWM.setMotorModel(-1000, 0, 0, 0)  # Front Left
         print("Front Left")
         time.sleep(2)
-        PWM.setMotorModel(0, -1000, 0, 0)  # Forward  # Back
+        PWM.setMotorModel(0, -1000, 0, 0)  # Back Left
         print("Back Left")
         time.sleep(2)
-        PWM.setMotorModel(0, 0, -1000, 0)  # Forward  # Left
+        PWM.setMotorModel(0, 0, -1000, 0)  # Front right
         print("Front Right")
         time.sleep(2)
-        PWM.setMotorModel(0, 0, 0, -1000)  # Forward  # Right
+        PWM.setMotorModel(0, 0, 0, -1000)  # Back right
         print("Back Right")
         time.sleep(2)
-        PWM.setMotorModel(-1000, -1000, -1000, -1000)  # Stop
+        PWM.setMotorModel(-1000, -1000, -1000, -1000)
         print("All")
         time.sleep(2)
-        PWM.setMotorModel(0, 0, 0, 0)
+        PWM.setMotorModel(0, 0, 0, 0)   # Stop
         led.colorWipe(led.strip, Color(0, 0, 0))  # turn off the light
         print("\nEnd of program")
     except KeyboardInterrupt:
@@ -178,14 +178,22 @@ def determineMotorLocation():
         print("\nEnd of program")
 
 
+def testSquare():
+    try:
+        PWM.setMotorModel(-1000, -1000, -1000, -1000)
+        time.sleep(2)
+        PWM.setMotorModel(0, 0, 0, 0)
+    except KeyboardInterrupt:
+        PWM.setMotorModel(0, 0, 0, 0)
+        print("\nEnd of program")
+
+
 from subprocess import run
 
 
-def screenOff():
+def screenDim():
     run('vcgencmd display_power 0', shell=True)
-    time.sleep(2)
-    run('vcgencmd display_power 1', shell=True)
-    print("\nEnd of program")
+    print("\nScreen Dim")
 
 
 # Main program logic follows:
@@ -214,4 +222,4 @@ if __name__ == '__main__':
     elif sys.argv[1] == 'Another':
         determineMotorLocation()
     elif sys.argv[1] == 'Screen':
-        screenOff()
+        screenDim()
