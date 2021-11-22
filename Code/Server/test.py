@@ -182,7 +182,7 @@ def testSquare():
     try:
         PWM.setMotorModel(-1000, -1000, -1000, -1000)
         time.sleep(2)
-        PWM.setMotorModel(1000, 1000, -1000, -1000)
+        PWM.setMotorModel(1500, 1500, -1500, -1500)
         time.sleep(1)
         PWM.setMotorModel(0, 0, 0, 0)
     except KeyboardInterrupt:
