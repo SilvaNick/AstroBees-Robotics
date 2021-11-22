@@ -223,3 +223,5 @@ if __name__ == '__main__':
         determineMotorLocation()
     elif sys.argv[1] == 'Screen':
         screenDim()
+    elif sys.argv[1] == 'Square':
+        testSquare()
