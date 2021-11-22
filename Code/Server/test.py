@@ -178,6 +178,7 @@ def determineMotorLocation():
         print("\nEnd of program")
 
 
+# using this to test the turning. I think we will need a GPS
 def testSquare():
     try:
         PWM.setMotorModel(-1000, -1000, -1000, -1000)
